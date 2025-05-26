@@ -462,7 +462,7 @@ boolean FtpServer::processCommand()
         {
     			String fn, fs;
           fn = file.name();
-    			fn.remove(0, 1);
+    			// Why do this ????   fn.remove(0, 1);
       		#ifdef FTP_DEBUG
   			  Serial.println("File Name = "+ fn);
       		#endif
