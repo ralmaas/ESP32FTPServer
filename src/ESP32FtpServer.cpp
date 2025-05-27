@@ -278,10 +278,11 @@ boolean FtpServer::processCommand()
 			if (parameters[0]=='/')
 			{
 				// Check if last character is a \
-				int length = strlen(parameters);
-				if (parameters[length -1] == '\\')
+				int len = strlen(parameters);
+				len--;
+				if (parameters[len] == '\\')
 				{
-					parameters[length -1] = "\0";
+					parameters[len] = "\0";
 					Serial.println("Last \ removed")
 				}
 				dir = parameters;
