@@ -301,8 +301,8 @@ boolean FtpServer::processCommand()
 				#endif
 
 			}        
-			Serial.print("DEBUG 4: ");
-			Serial.println(dir);
+			client.print("DEBUG 4: ");
+			client.println(dir);
 
 			if (SD.exists(dir))
 			{
