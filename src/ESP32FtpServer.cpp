@@ -301,8 +301,7 @@ boolean FtpServer::processCommand()
 				#endif
 
 			}        
-			client.print("DEBUG 4: ");
-			client.println(dir);
+			client.println("250 CWD DEBUG " + String(dir) + "\"");
 
 			if (SD.exists(dir))
 			{
