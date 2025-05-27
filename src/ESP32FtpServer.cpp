@@ -283,7 +283,7 @@ boolean FtpServer::processCommand()
 				if (parameters[len] == '\\')
 				{
 					parameters[len] = "\0";
-					Serial.println("Last \ removed")
+					Serial.println("Last b-slash removed");
 				}
 				dir = parameters;
 				#ifdef FTP_DEBUG
