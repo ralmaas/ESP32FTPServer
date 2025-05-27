@@ -277,14 +277,18 @@ boolean FtpServer::processCommand()
 
 			if (parameters[0]=='/')
 			{
-				// Check if last character is a \
-				int len = strlen(parameters);
-				len--;
-				if (parameters[len] == '\\')
-				{
-					parameters[len] = "\0";
-					Serial.println("Last b-slash removed");
-				}
+				// Check if last character is a backslash
+				int xx = strlen(parameters);
+        if (xx > 1)
+        {
+          Serial.print("Length of parameter: ");
+          Serial.println(xx);
+          if (parameters[xx-1] == '/')
+          {
+            parameters[xx-1] = '\0';
+            Serial.println("Last b-slash removed");
+				  }
+        }
 				dir = parameters;
 				#ifdef FTP_DEBUG
 					Serial.print("DEBUG 1: ");
@@ -309,7 +313,6 @@ boolean FtpServer::processCommand()
 				#endif
 
 			}        
-			client.println("250 CWD DEBUG " + String(dir) + "\"");
 
 			if (SD.exists(dir))
 			{
@@ -493,7 +496,9 @@ boolean FtpServer::processCommand()
         {
     			String fn, fs;
           fn = file.name();
-					fn.remove(0, 1);
+          Serial.print("DEBUG 99: ");
+          Serial.println(fn);
+					// fn.remove(0, 1);
       		#ifdef FTP_DEBUG
   			  	Serial.println("File Name = "+ fn);
       		#endif
