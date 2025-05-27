@@ -19,6 +19,7 @@
  */
 //  2017: modified by @robo8080
 //  2019: modified by @HenrikSte
+//  2025: buggy.... missing first character mod by @ralmaas
 
 #include "ESP32FtpServer.h"
 
