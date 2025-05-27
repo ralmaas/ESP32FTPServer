@@ -278,14 +278,28 @@ boolean FtpServer::processCommand()
 			if (parameters[0]=='/')
 			{
 				dir = parameters;
+				#ifdef FTP_DEBUG
+					Serial.print("DEBUG 1: ");
+					Serial.println(dir);
+				#endif
 			}
 			else if (!strcmp(cwdName,"/")) // avoid "\\newdir"
 			{
 				dir = String("/") + parameters;
+				#ifdef FTP_DEBUG
+					Serial.print("DEBUG 2: ");
+					Serial.println(dir);
+				#endif
+				
 			}
 			else
 			{
 				dir = String(cwdName) +"/" + parameters;
+				#ifdef FTP_DEBUG
+					Serial.print("DEBUG 3: ");
+					Serial.println(dir);
+				#endif
+
 			}        
 
 			if (SD.exists(dir))
